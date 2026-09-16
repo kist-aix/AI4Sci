@@ -13,25 +13,25 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #ffffff;                          /* 카드/패널 베이스 — 화이트 */
-  --surface: #eef4f7;
-  --border: rgba(19,42,76,0.12);
-  --text: #12253f;
-  --muted: #5c7288;
+  --bg: #0b1e49;                          /* 카드/패널 베이스 — 네이비 */
+  --surface: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.15);
+  --text: #eaf1ff;
+  --muted: #9fb6d8;
   --accent: #1271a1;                      /* 인터랙션(버튼·아이콘) 포인트 — ai4scikorea.org 블루-틴 */
   --accent2: #1fad96;                     /* 포인트 보조 — 그린-틴 */
-  --accent-soft: rgba(18,113,161,0.12);
-  --success: #2f9e5c;
-  --success-soft: rgba(47,158,92,0.14);
+  --accent-soft: rgba(18,113,161,0.18);
+  --success: #8cc846;
+  --success-soft: rgba(140,200,70,0.15);
   --highlight: #E23412;                   /* 부스 포인트 — 로고·포인트 (레드-오렌지) */
   --radius: 12px;
-  --shadow: 0 2px 8px rgba(16,40,70,.06), 0 8px 24px rgba(16,40,70,.07);
+  --shadow: 0 2px 8px rgba(0,0,0,.25), 0 8px 28px rgba(0,0,0,.28);
 }
 
 body {
   font-family: 'NanumSquareRound', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: #ffffff;
-  background-image: linear-gradient(180deg, #ffffff 0%, #f2f9fb 50%, #e7f4f6 100%);
+  background-color: #0b1e49;
+  background-image: linear-gradient(180deg, #030814 0%, #0a1f4a 55%, #143f86 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: var(--text);
@@ -51,7 +51,7 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.4;
+  opacity: 0.55;
   will-change: transform;
 }
 .blob-1 {
@@ -83,8 +83,8 @@ body {
   right: 6%;
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle at 50% 50%, #e23412, transparent 72%);
-  opacity: 0.1;
+  background: radial-gradient(circle at 50% 50%, #7dd8d0, transparent 72%);
+  opacity: 0.32;
   animation: blob-float-d 14s ease-in-out infinite;
 }
 @keyframes blob-float-a {
@@ -129,13 +129,13 @@ header {
 }
 .brand-60th {
   position: absolute;
-  top: 22px;
-  left: 26px;
-  width: 170px;
+  top: 24px;
+  right: 26px;
+  width: 80px;
   height: auto;
 }
 @media (max-width: 640px) {
-  .brand-60th { width: 108px; top: 14px; left: 14px; }
+  .brand-60th { width: 56px; top: 16px; right: 14px; }
 }
 .dept {
   font-size: 11px;
@@ -199,16 +199,16 @@ header p#page-subtitle {
   border-radius: 14px;
   font-size: 15px;
   font-family: inherit;
-  background: #ffffff;
+  background: rgba(255,255,255,0.08);
   color: var(--text);
   outline: none;
   transition: border-color .15s, box-shadow .15s;
-  box-shadow: 0 2px 8px rgba(16,40,70,.08);
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
 }
 #search::placeholder { color: var(--muted); }
 #search:focus {
   border-color: var(--accent);
-  box-shadow: 0 2px 14px rgba(18,113,161,.25);
+  box-shadow: 0 2px 14px rgba(18,113,161,.4);
 }
 
 /* ── CONTENT LAYOUT ── */
@@ -250,12 +250,12 @@ header p#page-subtitle {
   cursor: pointer;
 }
 .card:hover {
-  border-color: rgba(18,113,161,0.35);
-  box-shadow: 0 2px 8px rgba(16,40,70,.08), 0 8px 24px rgba(16,40,70,.1);
+  border-color: rgba(255,255,255,0.32);
+  box-shadow: 0 2px 8px rgba(0,0,0,.28), 0 8px 24px rgba(0,0,0,.3);
 }
 .card.active {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(18,113,161,.2), 0 2px 8px rgba(16,40,70,.08);
+  box-shadow: 0 0 0 2px rgba(171,173,176,.25), 0 2px 8px rgba(0,0,0,.08);
 }
 .card-top {
   display: flex;
@@ -332,7 +332,7 @@ header p#page-subtitle {
   text-decoration: none;
   white-space: nowrap;
 }
-.btn-gh:hover { border-color: rgba(18,113,161,0.5); color: var(--text); }
+.btn-gh:hover { border-color: rgba(255,255,255,0.4); color: var(--text); }
 
 /* ── AI 사이트 타일 ── */
 .sites-grid {
@@ -359,19 +359,19 @@ header p#page-subtitle {
   transition: border-color .15s, box-shadow .15s, transform .1s;
 }
 .site-tile:hover {
-  border-color: rgba(18,113,161,0.35);
-  box-shadow: 0 2px 8px rgba(16,40,70,.08), 0 8px 24px rgba(16,40,70,.1);
+  border-color: rgba(255,255,255,0.32);
+  box-shadow: 0 2px 8px rgba(0,0,0,.28), 0 8px 24px rgba(0,0,0,.3);
   transform: translateY(-2px);
 }
 .site-tile.active {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(18,113,161,.2), 0 2px 8px rgba(16,40,70,.08);
+  box-shadow: 0 0 0 2px rgba(171,173,176,.25), 0 2px 8px rgba(0,0,0,.08);
 }
 .site-icon {
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(18,113,161,0.14), rgba(31,173,150,0.14));
+  background: rgba(255,255,255,0.1);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
