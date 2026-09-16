@@ -30,7 +30,7 @@
       "emoji": "✨",
       "name": "k-skill",
       "desc": "한국인을 위한 스킬 모음집 - 에이전트를 한국인으로",
-      "stars": 7574,
+      "stars": 7576,
       "category": "skill",
       "subTags": [
         "기타"
@@ -43,7 +43,7 @@
       "emoji": "✨",
       "name": "scientific-agent-skills",
       "desc": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
-      "stars": 45120,
+      "stars": 45128,
       "category": "skill",
       "subTags": [
         "연구"
@@ -78,7 +78,7 @@
       "emoji": "✨",
       "name": "academic-research-skills",
       "desc": "Academic Research Skills for Claude Code: research → write → review → revise → finalize",
-      "stars": 48268,
+      "stars": 48272,
       "category": "skill",
       "subTags": [
         "연구"
