@@ -43,7 +43,7 @@
       "emoji": "✨",
       "name": "scientific-agent-skills",
       "desc": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide. 165 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
-      "stars": 45128,
+      "stars": 45140,
       "category": "skill",
       "subTags": [
         "연구"
@@ -56,7 +56,7 @@
       "emoji": "✨",
       "name": "harness",
       "desc": "A meta-skill that designs domain-specific agent teams, defines specialized agents, and generates the skills they use.",
-      "stars": 9000,
+      "stars": 8999,
       "category": "harness",
       "subTags": [],
       "url": "https://github.com/kist-aix/harness",
@@ -78,7 +78,7 @@
       "emoji": "✨",
       "name": "academic-research-skills",
       "desc": "Academic Research Skills for Claude Code: research → write → review → revise → finalize",
-      "stars": 48272,
+      "stars": 48281,
       "category": "skill",
       "subTags": [
         "연구"
