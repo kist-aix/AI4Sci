@@ -33,9 +33,10 @@
   const AI_SITES = [
     // ── KIST ──
     { name: 'IP Landscape',   url: 'https://iplandscape.vercel.app/',    desc: 'IP Landscape 관련 매뉴얼', icon: 'map',  tag: 'KIST' },
-    { name: 'Paper-curation', url: 'https://paper-curation.jehyunlee.dev/', desc: '논문 큐레이션<br>연구 흐름 분석', icon: 'flow', tag: 'KIST' },
-    { name: '미로찾기 게임',   url: 'https://tech.jehyunlee.dev/kist_miro/', desc: 'KIST 미로 · 연구를 향한 여정', icon: 'maze', tag: 'KIST' },
-    { name: 'Paper-banana',   url: 'https://aix.kist.re.kr/',            desc: 'KIST AIX 플랫폼', icon: 'banana', tag: 'KIST' },
+    { name: 'Research Landscape', url: '#',                              desc: '연구 동향·지형 분석', icon: 'grid', tag: 'KIST' },
+    { name: 'Paper-curation', url: 'https://paper-curation.jehyunlee.dev/', desc: '논문 큐레이션 연구 흐름 분석', icon: 'flow', tag: 'KIST', qr: 'src/qr/paper-curation.png' },
+    { name: '미로찾기 게임',   url: 'https://tech.jehyunlee.dev/kist_miro/', desc: 'KIST 미로 · 연구를 향한 여정', icon: 'maze', tag: 'KIST', qr: 'src/qr/maze.png' },
+    { name: 'Paper-banana',   url: 'https://aix.kist.re.kr/',            desc: 'KIST AIX 플랫폼', icon: 'banana', tag: 'KIST', qr: 'src/qr/paper-banana.png' },
   ];
 
   // 내장 아이콘 (SVG) — icon 필드로 선택
@@ -382,6 +383,7 @@
         </span>
         <span class="site-name">${s.name}</span>
         ${s.desc ? `<span class="site-desc">${s.desc}</span>` : ''}
+        ${s.qr ? `<img class="site-tile-qr" src="${s.qr}" alt="${s.name} QR 코드" loading="lazy" />` : ''}
       </div>
     `).join('');
 
