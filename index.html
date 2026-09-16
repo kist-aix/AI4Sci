@@ -36,7 +36,6 @@
     { name: 'Paper-curation', url: 'https://paper-curation.jehyunlee.dev/', desc: '논문 큐레이션<br>연구 흐름 분석', icon: 'flow', tag: 'KIST' },
     { name: '미로찾기 게임',   url: 'https://tech.jehyunlee.dev/kist_miro/', desc: 'KIST 미로 · 연구를 향한 여정', icon: 'maze', tag: 'KIST' },
     { name: 'Paper-banana',   url: 'https://aix.kist.re.kr/',            desc: 'KIST AIX 플랫폼', icon: 'banana', tag: 'KIST' },
-    { name: 'KIST Finder',    url: 'https://chatai.kist.re.kr:9080/',    desc: '스마트문서조회', icon: 'grid', tag: 'KIST' },
   ];
 
   // 내장 아이콘 (SVG) — icon 필드로 선택
@@ -65,14 +64,6 @@
     </div>
   </div>
 </header>
-
-<div class="tabs">
-  <button class="tab active" data-tab="sites">AI4Sci</button>
-  <button class="tab" data-tab="skill">Skill</button>
-  <button class="tab" data-tab="harness">Harness</button>
-</div>
-
-<div id="sub-tabs" class="sub-tabs"></div>
 
 <div class="content-wrap">
   <div class="main-col">
@@ -441,6 +432,7 @@
   /* ── 서브탭 렌더링 ── */
   function renderSubTabs() {
     const el = document.getElementById('sub-tabs');
+    if (!el) return;
     const rawTags = activePrimary === 'sites'
       ? AI_SITES.map(s => s.tag).filter(Boolean)
       : cards.filter(c => c.category === activePrimary).flatMap(c => c.subTags);
