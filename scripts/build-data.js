@@ -15,7 +15,7 @@ const fs   = require('fs');
 const path = require('path');
 
 const ROOT        = path.resolve(__dirname, '..');
-const SITE_DIR    = path.join(ROOT, 'ai4sci');   // 페이지 산출물이 /ai4sci 하위에 위치
+const SITE_DIR    = ROOT;   // 페이지 산출물이 저장소 루트에 위치
 const SKILLS_FILE = path.join(ROOT, 'skills.json');
 const DATA_FILE   = path.join(SITE_DIR, 'data.json');
 const README_DIR  = path.join(SITE_DIR, 'readme');
