@@ -1,0 +1,91 @@
+{
+  "github_user": "kist-aix",
+  "auto_discover": {
+    "topics": [
+      "skill",
+      "harness"
+    ]
+  },
+  "skills": [
+    {
+      "repo": "hwpx",
+      "emoji": "📄",
+      "desc": "",
+      "tags": [
+        "문서"
+      ]
+    },
+    {
+      "repo": "im-not-ai",
+      "emoji": "✨"
+    },
+    {
+      "repo": "k-skill",
+      "emoji": "✨",
+      "tags": [
+        "기타"
+      ]
+    },
+    {
+      "repo": "scientific-agent-skills",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "harness",
+      "emoji": "✨"
+    },
+    {
+      "repo": "harness-100",
+      "emoji": "✨"
+    },
+    {
+      "repo": "academic-research-skills",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "science-skills",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "paper-curation",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "searchinfohwpx",
+      "emoji": "✨",
+      "tags": [
+        "문서"
+      ]
+    },
+    {
+      "repo": "scholar-megasearch",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "autoresearch",
+      "emoji": "✨",
+      "tags": [
+        "연구"
+      ]
+    },
+    {
+      "repo": "market-analysis-skill",
+      "emoji": "✨"
+    }
+  ]
+}
