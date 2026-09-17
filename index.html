@@ -40,11 +40,11 @@
   //   tag: 'KIST' — AI4Sci 탭의 서브탭(필터) 분류.
   const AI_SITES = [
     // ── KIST ──
+    { name: 'Paper-curation', url: 'https://paper-curation.jehyunlee.dev/', desc: '논문 큐레이션 연구 흐름 분석', icon: 'flow', tag: 'KIST', qr: 'src/qr/paper-curation.png' },
+    { name: 'Paper-banana',   url: 'https://aix.kist.re.kr/',            desc: 'KIST AIX 플랫폼', icon: 'banana', tag: 'KIST', qr: 'src/qr/paper-banana.png' },
+    { name: '미로찾기 게임',   url: 'https://tech.jehyunlee.dev/kist_miro/', desc: 'KIST 미로 · 연구를 향한 여정', icon: 'maze', tag: 'KIST', qr: 'src/qr/maze.png' },
     { name: 'IP Landscape',   url: 'https://iplandscape.vercel.app/',    desc: 'IP Landscape 관련 매뉴얼', icon: 'map',  tag: 'KIST', qr: 'src/qr/ip-landscape.png' },
     { name: 'Research Landscape', url: 'https://res-landscape.vercel.app/', desc: '연구 동향·지형 분석', icon: 'search', tag: 'KIST' },
-    { name: 'Paper-curation', url: 'https://paper-curation.jehyunlee.dev/', desc: '논문 큐레이션 연구 흐름 분석', icon: 'flow', tag: 'KIST', qr: 'src/qr/paper-curation.png' },
-    { name: '미로찾기 게임',   url: 'https://tech.jehyunlee.dev/kist_miro/', desc: 'KIST 미로 · 연구를 향한 여정', icon: 'maze', tag: 'KIST', qr: 'src/qr/maze.png' },
-    { name: 'Paper-banana',   url: 'https://aix.kist.re.kr/',            desc: 'KIST AIX 플랫폼', icon: 'banana', tag: 'KIST', qr: 'src/qr/paper-banana.png' },
   ];
 
   // 내장 아이콘 (SVG) — icon 필드로 선택
@@ -118,6 +118,8 @@
         </div>
         <div id="site-detail-tags" class="card-tags"></div>
         <p class="drawer-desc" id="site-detail-desc"></p>
+      </div>
+      <div class="drawer-site-footer">
         <div class="card-actions">
           <a class="btn-copy" id="site-detail-open" href="#" target="_blank" rel="noopener">
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -339,10 +341,16 @@
 
   function syncPanelHeight() {
     const panel = document.getElementById('detail-panel');
-    const mainCol = document.querySelector('.main-col');
-    if (!mainCol) return;
-    const pb = parseInt(getComputedStyle(mainCol).paddingBottom) || 0;
-    panel.style.height = (mainCol.offsetHeight - pb) + 'px';
+    // main-col 은 footer 위치 고정용 min-height(70vh)를 가지므로,
+    // 실제 보이는 콘텐츠(사이트 타일 또는 카드 그리드)의 하단을 기준으로 맞춘다.
+    const content = activePrimary === 'sites'
+      ? document.getElementById('sites-grid')
+      : grid;
+    if (!content || !panel) return;
+    panel.style.height = '';   // 이전 고정값 제거 후 실측
+    const contentBottom = content.getBoundingClientRect().bottom;
+    const panelTop = panel.getBoundingClientRect().top;
+    panel.style.height = Math.max(0, contentBottom - panelTop) + 'px';
   }
 
   /* ── AI 사이트 타일 렌더링 ── */
@@ -354,21 +362,12 @@
     const el = document.getElementById('sites-grid');
     const q = search ? search.value.trim().toLowerCase() : '';
 
-    // 이름 정렬: 알파벳(영문) 먼저, 그 다음 한글 순
-    const isHangul = str => /^[ㄱ-ㅎ가-힣]/.test(str);
-    const nameCmp = (a, b) => {
-      if (isHangul(a.name) !== isHangul(b.name)) return isHangul(a.name) ? 1 : -1;
-      return a.name.localeCompare(b.name, 'ko');
-    };
-    // '전체'에서는 KIST 그룹을 먼저, 각 그룹 안에서 이름 순 정렬
-    const tagRank = t => (t === 'KIST' ? 0 : 1);
-
+    // AI_SITES 배열에 정의된 순서를 그대로 유지한다.
     const list = AI_SITES
       .filter(s =>
         (activeSubTag === 'all' || s.tag === activeSubTag) &&
         (!q || (s.name + ' ' + (s.desc || '')).toLowerCase().includes(q))
-      )
-      .sort((a, b) => tagRank(a.tag) - tagRank(b.tag) || nameCmp(a, b));
+      );
 
     if (list.length === 0) {
       el.innerHTML = '';
@@ -411,6 +410,8 @@
     if (selectedSite && !list.some(s => s.name === selectedSite)) {
       resetDetail();
     }
+
+    requestAnimationFrame(syncPanelHeight);
   }
 
   function updateSiteDetail(site) {
